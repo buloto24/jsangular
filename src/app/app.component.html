@@ -1,22 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="auth" >Authentification</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="appareils" >Appareil</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <h2>Mes appareils</h2>
-            <p>Mis à jour : {{ lastUpdate | async | date: 'yMMMMEEEEd' | uppercase }}</p>
-            <ul class="list-group">
-                <app-appareil  *ngFor="let appareil of appareils; let i = index"
-                                [appareilName]="appareil.name"
-                                [appareilStatus]="appareil.status"
-                                [index]= "i">
-                </app-appareil>
-            </ul>
-            <button class="btn btn-success"
-                    [disabled]="!isAuth"
-                    (click)="onAllumer()">Tout allumer</button>
-            <button class="btn btn-danger"
-                    [disabled]="!isAuth"
-                    (click)="onEteindre()">Tout éteindre</button>
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>
